@@ -79,3 +79,9 @@ p {
 .container-fluid{
     justify-content: space-between;
 }
+
+/* Footer specifics */
+.footer-section p{color:#f7fbff;opacity:0.95;margin-bottom:0.5rem}
+.footer-section a{color:#fff;text-decoration:none;opacity:0.95}
+.footer-section a:hover{text-decoration:underline;color:#f2f2f2}
+.footer-section small{color:#eef4ff;opacity:0.9}
