@@ -1,0 +1,43 @@
+{% extends "website/layout.html" %}
+
+{% block content %}
+<main>
+    <div class="page-header">
+        <h1>About Us</h1>
+        <p>Learn more about our mission and what we do</p>
+    </div>
+
+    <section>
+        <p class="intro">Welcome to our website! We're dedicated to providing quality services and content to our community.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>Our mission is to create a welcoming space where everyone can learn, grow, and connect. We believe in the power of community and collaboration to make a positive impact.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>What We Do</h2>
+        <p>We provide resources, tools, and support to help our users achieve their goals. Whether you're just starting out or looking to expand your skills, we're here to help you succeed.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>Our Values</h2>
+        <ul class="values-list">
+            <li><span class="highlight">Integrity</span> - We believe in being honest and transparent in everything we do.</li>
+            <li><span class="highlight">Excellence</span> - We strive to deliver the best quality in our work and services.</li>
+            <li><span class="highlight">Community</span> - We value collaboration and supporting one another.</li>
+            <li><span class="highlight">Innovation</span> - We embrace new ideas and continuously improve.</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h2>Why Choose Us?</h2>
+        <p>With years of experience and a passionate team, we're committed to your success. Our user-friendly approach ensures that you get the support you need, when you need it.</p>
+    </section>
+
+    <section class="contact-prompt">
+        <p>Have questions? <a href="{% url 'contact' %}" class="contact-link">Get in touch with us!</a></p>
+    </section>
+</main>
+{% endblock %}
