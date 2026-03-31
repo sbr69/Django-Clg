@@ -2,16 +2,38 @@
 {% extends "website/layout.html" %}
 
 {% block content %}
+<main>
+    <div class="page-header">
+        <h1>All Products</h1>
+        <p>Browse our complete catalog</p>
+    </div>
+
     {% block products %}
-        {% for product in products %}
-            <div class="product">
-                <h2>{{ product.name }}</h2>
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="220">
-                {% endif %}
-                <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
+        {% if products %}
+            <div class="product-grid">
+                {% for product in products %}
+                    <div class="product-card">
+                        {% if product.image %}
+                            <div class="product-image-wrapper">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </div>
+                        {% endif %}
+                        <div class="product-info">
+                            <h2>{{ product.name }}</h2>
+                            <p class="product-desc">{{ product.description }}</p>
+                            <div class="product-footer">
+                                <span class="price">${{ product.price }}</span>
+                                <button class="btn-buy" type="button">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <p>No products available at the moment.</p>
+            </div>
+        {% endif %}
     {% endblock %}
+</main>
 {% endblock %}

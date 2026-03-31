@@ -1,20 +1,36 @@
 {% extends "website/layout.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the home page of our Django application.</p>
+<main>
+    <div class="page-header">
+        <h1>Welcome to our Store</h1>
+        <p>Discover our wide range of premium products</p>
+    </div>
+
     {% if products %}
-        {% for product in products %}
-            <div class="product">
-                <h2>{{ product.name }}</h2>
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="220">
-                {% endif %}
-                <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
-            </div>
-        {% endfor %}
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    {% if product.image %}
+                        <div class="product-image-wrapper">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </div>
+                    {% endif %}
+                    <div class="product-info">
+                        <h2>{{ product.name }}</h2>
+                        <p class="product-desc">{{ product.description }}</p>
+                        <div class="product-footer">
+                            <span class="price">${{ product.price }}</span>
+                            <button class="btn-buy" type="button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% else %}
-        <p>No products available.</p>
+        <div class="empty-state">
+            <p>No products available at the moment. Please check back later!</p>
+        </div>
     {% endif %}
+</main>
 {% endblock %}
