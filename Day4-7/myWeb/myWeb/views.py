@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from newApp.models import product
+from newApp.models import Product
 
 def home(request):
-    products = product.objects.filter(status='available').order_by('-created_at')
+    products = Product.objects.filter(status='available').order_by('-created_at')
     return render(request, 'index.html', {'products': products})
 
 def about(request):

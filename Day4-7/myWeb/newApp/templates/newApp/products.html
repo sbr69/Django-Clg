@@ -1,13 +1,10 @@
-{% load static %}
 {% extends "website/layout.html" %}
 
-{% block content %}
-<main>
-    <div class="page-header">
-        <h1>All Products</h1>
-        <p>Browse our complete catalog</p>
-    </div>
+{% block title %}
+Products
+{% endblock %}
 
+{% block content %}
     {% block products %}
         {% if products %}
             <div class="product-grid">
@@ -36,5 +33,4 @@
             </div>
         {% endif %}
     {% endblock %}
-</main>
 {% endblock %}

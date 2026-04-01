@@ -12,16 +12,17 @@
             {% for product in products %}
                 <div class="product-card">
                     {% if product.image %}
-                        <div class="product-image-wrapper">
+                        <a href="{% url 'product_detail' product.id %}" class="product-image-wrapper">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </div>
+                        </a>
                     {% endif %}
                     <div class="product-info">
-                        <h2>{{ product.name }}</h2>
+                        <h2><a href="{% url 'product_detail' product.id %}" class="product-title-link">{{ product.name }}</a></h2>
+                        <span class="status-badge status-{{ product.status }}">{{ product.get_status_display }}</span>
                         <p class="product-desc">{{ product.description }}</p>
                         <div class="product-footer">
                             <span class="price">${{ product.price }}</span>
-                            <button class="btn-buy" type="button">Add to Cart</button>
+                            <a href="{% url 'product_detail' product.id %}" class="btn-buy">View Details</a>
                         </div>
                     </div>
                 </div>
